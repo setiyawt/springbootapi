@@ -18,6 +18,10 @@ public class LokasiService {
         return lokasiRepo.save(lokasi);
     }
 
+    public Lokasi save (Lokasi lokasi) {
+        return lokasiRepo.save(lokasi);
+    }
+
     public Lokasi findOne(Long Id) {
         return lokasiRepo.findById(Id).orElse(null);
     }

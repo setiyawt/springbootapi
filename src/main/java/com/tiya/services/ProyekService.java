@@ -1,5 +1,7 @@
 package com.tiya.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.tiya.models.repo.ProyekRepo;
@@ -18,8 +20,16 @@ public class ProyekService {
         return proyekRepo.save(proyek);
     }
 
+    public Proyek save (Proyek proyek) {
+        return proyekRepo.save(proyek);
+    }
+
     public Proyek findOne(Long Id) {
-        return proyekRepo.findById(Id).orElse(null);
+        Optional<Proyek> proyek = proyekRepo.findById(Id);
+        if (!proyek.isPresent()) {
+            return null;
+        }
+        return proyek.get();
     }
 
     public Iterable<Proyek> findAll() {
@@ -29,4 +39,6 @@ public class ProyekService {
     public void delete(Long Id) {
         proyekRepo.deleteById(Id);
     }
+
+   
 }

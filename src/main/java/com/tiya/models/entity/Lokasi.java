@@ -3,7 +3,7 @@ package com.tiya.models.entity;
 import java.io.Serializable;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-
+import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,17 +31,20 @@ public class Lokasi implements Serializable {
 
     private String kota;
 
+    private LocalDateTime created_at;
+
 
 
     public Lokasi() {
     }
 
-    public Lokasi(Long id, String nama_lokasi, String negara, String provinsi, String kota) {
+    public Lokasi(Long id, String nama_lokasi, String negara, String provinsi, String kota, LocalDateTime created_at) {
         this.id = id;
         this.nama_lokasi = nama_lokasi;
         this.negara = negara;
         this.provinsi = provinsi;
         this.kota = kota;
+        this.created_at = created_at;
     }
 
     public static long getSerialversionuid() {
@@ -86,6 +89,14 @@ public class Lokasi implements Serializable {
 
     public void setKota(String kota) {
         this.kota = kota;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
     }
 
 
